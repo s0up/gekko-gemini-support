@@ -11,8 +11,8 @@ type = 'getPortfolio';
 
 switch(type){
   case 'getPortfolio':
-    Gemini.getPortfolio(function(result){
-      console.log("Portfolio test result ", result);
+    Gemini.getPortfolio(function(err, result){
+      console.log("Portfolio test result ", err, result);
     });
   break;
 }
