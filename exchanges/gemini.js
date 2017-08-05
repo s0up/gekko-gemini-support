@@ -49,10 +49,10 @@ Trader.prototype.getPortfolio = function(callback) {
 
   self.gemini.getMyAvailableBalances().then(function(result){
     for(item of result){
-      portfolio.push({name: item.type, amount: parseFloat(item.amount)});
+      portfolio.push({name: item.currency, amount: parseFloat(item.amount)});
     }
 
-    return callback(portfolio);
+    return callback(null, portfolio);
   }).catch(function(e){
     return self.retry(self.getPortfolio, args);
   });
